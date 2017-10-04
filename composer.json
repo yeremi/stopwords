@@ -1,0 +1,19 @@
+{
+  "name": "yeremi/stopwords",
+  "description": "StopWords is a simple stop words for Português Brazilian Language.",
+  "keywords": ["stopwords","portuguese"],
+  "authors": [
+    {
+      "name": "Yeremi Loli",
+      "email": "yeremi@nohelmet.com"
+    }
+  ],
+  "require": {
+    "php": "^5.3.3 || ^7.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "Yeremi": "src"
+    }
+  }
+}
