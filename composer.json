@@ -1,19 +1,45 @@
 {
   "name": "yeremi/stopwords",
-  "description": "StopWords is a simple stop words for Português Brazilian Language.",
-  "keywords": ["stopwords","portuguese"],
+  "description": "PHP client StopWords for Portuguese Brazilian Language",
+  "version": "1.0.1",
+  "keywords": [
+    "stopwords",
+    "portuguese",
+    "snowball",
+    "searchengine",
+    "elasticsearch",
+    "seo",
+    "stemming",
+    "filter",
+    "natural language processing"
+  ],
+  "homepage": "https://github.com/yeremi/stopwords",
+  "license": "SEE LICENSE IN LICENSE.md",
   "authors": [
     {
       "name": "Yeremi Loli",
-      "email": "yeremi@nohelmet.com"
+      "email": "yeremiloli@yahoo.com"
     }
   ],
   "require": {
-    "php": "^5.3.3 || ^7.0"
+    "php": "^7.0"
   },
-  "autoload": {
-    "psr-0": {
-      "Yeremi": "src"
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/yeremi/stopwords.git"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Yeremi\\": "src/"
+    }
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.15"
+  },
+  "scripts": {
+    "check-style": "php-cs-fixer fix --diff --verbose --dry-run src/StopWords.php",
+    "fix-style": "php-cs-fixer fix src/StopWords.php"
   }
 }

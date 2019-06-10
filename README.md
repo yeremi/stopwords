@@ -1,7 +1,11 @@
 # StopWords for Portuguese Brazilian Language / PT-BR
-PHP client StopWords for Portuguese Brazilian Language
-One of our major performance optimizations for query is filtered and removing the most unless common Portuguese dictionary words before submitting queries to the database full text engine.  It's shocking to see how little of most posts remain when you remove empty words from the Portuguese dictionary.
-This StopWord contain 603 "stop words" collection that helps narrow and narrow query results by running the query dramatically faster.
+##### PHP client StopWords for Portuguese Brazilian Language
+
+One of our major performance optimizations for query is filtering and removing the most unless common Portuguese dictionary words before submitting queries to the database full text engine. 
+It's shocking to see what happens when you remove the empty words from the Portuguese dictionary.
+
+This StopWord contains a collection of 603 "stop words" that helps filter and narrow query results by running a query dramatically faster.
+
 You can also use stop words in SEO to avoid search engines, saving space and time in processing large data during crawling or indexing.
 
 ## Setup
