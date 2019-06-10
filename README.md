@@ -1,10 +1,11 @@
-# StopWords for PT-BR
+# StopWords for Portuguese Brazilian Language / PT-BR
+PHP client StopWords for Portuguese Brazilian Language
+One of our major performance optimizations for query is filtered and removing the most unless common Portuguese dictionary words before submitting queries to the database full text engine.  It's shocking to see how little of most posts remain when you remove empty words from the Portuguese dictionary.
+This StopWord contain 603 "stop words" collection that helps narrow and narrow query results by running the query dramatically faster.
+You can also use stop words in SEO to avoid search engines, saving space and time in processing large data during crawling or indexing.
 
-PHP client for StopWords on Portuguese Brazilian Language
-
-## Installation
-
-Install the API client with Composer. Add this to your `composer.json`:
+## Setup
+To run this project, install it locally using Composer by adding the following in your `composer.json` file:
 
 ```json
 {
@@ -14,19 +15,16 @@ Install the API client with Composer. Add this to your `composer.json`:
 }
 ```
 
-Then install with:
+then run the installation by executing: `composer install`
 
-```
-composer install
-```
-
-Use autoloading to make the client available in PHP:
+### Autoloading
+Use autoloading to make the client available in your PHP project:
 
 ```php
 require_once("vendor/autoload.php");
 ```
 
-## Usage
+## Usage example
 
 ```php
 $string = 'put your long text here';
@@ -36,5 +34,5 @@ print_r($output_array);
 ```
 
 ## License
-
-This software is licensed under the MIT License. [View the license](LICENSE).
+Copyright (c) 2017 Yeremi Loli
+This software is licensed under the GNU General Public License v3.0. [View the license](LICENSE).
