@@ -1,0 +1,20 @@
+{
+  "name": "yeremi-stopwords",
+  "description": "Stopwords (NPL) for Portuguese Brazilian Language PHP client provides a convenient toolset for developers working with Natural Language Processing (NLP) tasks in Brazilian Portuguese.",
+  "version": "0.1.0",
+  "author": "Yeremi Loli",
+  "homepage": "https://github.com/yeremi/stopwords",
+  "keywords": [
+    "stopwords",
+    "portuguese",
+    "snowball",
+    "searchengine",
+    "elasticsearch",
+    "seo",
+    "stemming",
+    "filter",
+    "natural language processing"
+  ],
+  "license": "GPL-3.0-or-later",
+  "private": true
+}

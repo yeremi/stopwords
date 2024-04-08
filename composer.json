@@ -1,7 +1,6 @@
 {
   "name": "yeremi/stopwords",
-  "description": "PHP client StopWords for Portuguese Brazilian Language",
-  "version": "1.0.1",
+  "description": "Stopwords (NPL) for Portuguese Brazilian Language PHP client provides a convenient toolset for developers working with Natural Language Processing (NLP) tasks in Brazilian Portuguese.",
   "keywords": [
     "stopwords",
     "portuguese",
@@ -14,7 +13,7 @@
     "natural language processing"
   ],
   "homepage": "https://github.com/yeremi/stopwords",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Yeremi Loli",
@@ -22,7 +21,7 @@
     }
   ],
   "require": {
-    "php": "^7.0"
+    "php": "^7.0 || ^8.0 || ^8.1 || ^8.2"
   },
   "repositories": [
     {
@@ -32,14 +31,25 @@
   ],
   "autoload": {
     "psr-4": {
-      "Yeremi\\": "src/"
+      "Yeremi\\StopWords\\": "src/"
     }
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.15"
+    "squizlabs/php_codesniffer": "^3.6",
+    "phpunit/phpunit": "^9.5",
+    "vimeo/psalm": "^4.13"
   },
   "scripts": {
-    "check-style": "php-cs-fixer fix --diff --verbose --dry-run src/StopWords.php",
-    "fix-style": "php-cs-fixer fix src/StopWords.php"
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf",
+    "test": "phpunit",
+    "psalm": "psalm"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "autoload-dev": {
+    "psr-4": {
+      "Yeremi\\StopWords\\": "tests/unit/"
+    }
   }
 }

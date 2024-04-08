@@ -1,42 +1,50 @@
 # StopWords for Portuguese Brazilian Language / PT-BR
+
 ##### PHP client StopWords for Portuguese Brazilian Language
 
-One of our major performance optimizations for query is filtering and removing the most unless common Portuguese dictionary words before submitting queries to the database full text engine. 
-It's shocking to see what happens when you remove the empty words from the Portuguese dictionary.
+Stopwords (NPL) for Portuguese Brazilian Language PHP client provides a convenient toolset for developers working with
+Natural Language Processing (NLP) tasks in Brazilian Portuguese. This Composer package offers seamless integration,
+allowing easy access to a comprehensive list of stopwords commonly used in text analysis and preprocessing. Enhance your
+NLP projects by effortlessly filtering out irrelevant words, optimizing text processing, and improving overall accuracy.
+Harness the power of stopwords tailored specifically for the nuances of Brazilian Portuguese with this essential PHP
+client.
 
-This StopWord contains a collection of 603 "stop words" that helps filter and narrow query results by running a query dramatically faster.
-
-You can also use stop words in SEO to avoid search engines, saving space and time in processing large data during crawling or indexing.
+You can also use stop words in SEO to avoid search engines, saving space and time in processing large data during
+crawling or indexing.
 
 ## Setup
-To run this project, install it locally using Composer by adding the following in your `composer.json` file:
 
-```json
-{
-  "require": {
-    "yeremi/stopwords": "*"
-  }
+To run this project, install it locally using Composer:
+
+```shell
+composer require yeremi/stopwords
+```
+
+## How to use
+
+```php
+use Yeremi\StopWords\StopWords;
+
+class StopWordsHandler {
+
+    public function __construct(
+        private Stopwords $stopwords
+    ) {}
+    
+    public function handler(string $string): array 
+    {
+        return $this->stopwords::stop($string);
+    }
 }
-```
 
-then run the installation by executing: `composer install`
+$stopwords = new Stopwords();
+$handlesClass = new StopWordsHandler($stopwords);
 
-### Autoloading
-Use autoloading to make the client available in your PHP project:
-
-```php
-require_once("vendor/autoload.php");
-```
-
-## Usage example
-
-```php
 $string = 'put your long text here';
-$output_array = Yeremi\StopWords::stop($string);
-
-print_r($output_array);
+var_export($handlesClass->handler($string));
 ```
 
 ## License
+
 Copyright (c) 2017 Yeremi Loli
 This software is licensed under the GNU General Public License v3.0. [View the license](LICENSE).
