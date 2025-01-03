@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stopwords Metadata",
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string",
+      "description": "The language for which the stopwords apply (ISO 639-1 code)."
+    },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "The categories for the stopwords. Categories can include predefined categories and additional ones. Predefined categories include: pronouns, prepositions, conjunctions, articles, adverbs."
+    },
+    "stopwords": {
+      "type": "object",
+      "description": "The stopwords categorized by their types.",
+      "properties": {
+        "pronouns": { "type": "array", "items": { "type": "string" } },
+        "numerals": { "type": "array", "items": { "type": "string" } },
+        "temporal": { "type": "array", "items": { "type": "string" } },
+        "locative": { "type": "array", "items": { "type": "string" } },
+        "prepositions": { "type": "array", "items": { "type": "string" } },
+        "conjunctions": { "type": "array", "items": { "type": "string" } },
+        "articles": { "type": "array", "items": { "type": "string" } },
+        "adverbs": { "type": "array", "items": { "type": "string" } },
+        "interjections": { "type": "array", "items": { "type": "string" } },
+        "contractions": { "type": "array", "items": { "type": "string" } },
+        "others": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    }
+  },
+  "required": ["language", "categories", "stopwords"],
+  "additionalProperties": false,
+  "$error": {
+    "required": {
+      "language": "The 'language' field is mandatory",
+      "stopwords": "The 'stopwords' field is mandatory",
+      "categories": "The 'categories' field is mandatory"
+    }
+  }
+}
