@@ -10,11 +10,24 @@ on:
 
 jobs:
   release:
+    name: Create Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -22,16 +35,12 @@ jobs:
           php-version: '8.2'
           extensions: mbstring, bcmath
 
-      - name: Install Composer
-        run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+      - name: Install Dependencies
+        run: |
+          npm init -y
+          npm install --save-dev semantic-release @semantic-release/changelog @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/git @semantic-release/github
 
-      - name: Install dependencies with Composer
-        run: composer install --no-dev
-
-      - name: Install semantic-release
-        run: npm install --save-dev semantic-release @semantic-release/changelog @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/git @semantic-release/github
-
-      - name: Semantic Release
+      - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
