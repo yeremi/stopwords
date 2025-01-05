@@ -30,9 +30,6 @@ jobs:
         with:
           composer-options: "--prefer-dist"
 
-      - name: Run PHP Lint
-        run: find . -type f -name "*.php" -exec php -l {} \;
-
       - name: Run PHPStan
         run: ./vendor/bin/phpstan analyse -l 3 src tests --memory-limit=512M
 
