@@ -1,6 +1,8 @@
 {
   "name": "yeremi/stopwords",
-  "description": "Stopwords (NPL) for Portuguese Brazilian Language PHP client provides a convenient toolset for developers working with Natural Language Processing (NLP) tasks in Brazilian Portuguese.",
+  "description": "Stopwords is a lightweight and efficient PHP library designed to simplify Natural Language Processing (NLP) tasks.",
+  "license": "MIT",
+  "type": "library",
   "keywords": [
     "stopwords",
     "portuguese",
@@ -10,46 +12,45 @@
     "seo",
     "stemming",
     "filter",
-    "natural language processing"
+    "NLP"
   ],
-  "homepage": "https://github.com/yeremi/stopwords",
-  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Yeremi Loli",
       "email": "yeremiloli@yahoo.com"
     }
   ],
+  "homepage": "https://github.com/yeremi/stopwords",
   "require": {
-    "php": "^7.0 || ^8.0 || ^8.1 || ^8.2"
-  },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/yeremi/stopwords.git"
-    }
-  ],
-  "autoload": {
-    "psr-4": {
-      "Yeremi\\StopWords\\": "src/"
-    }
+    "php": "^8.1",
+    "opis/json-schema": "^2.4"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.6",
-    "phpunit/phpunit": "^9.5",
-    "vimeo/psalm": "^4.13"
-  },
-  "scripts": {
-    "cs-check": "phpcs",
-    "cs-fix": "phpcbf",
-    "test": "phpunit",
-    "psalm": "psalm"
+    "friendsofphp/php-cs-fixer": "^3.65.0",
+    "phpstan/phpstan": "^2.0.0",
+    "phpunit/phpunit": "^9.5.0",
+    "rector/rector": "^2@dev"
   },
   "minimum-stability": "stable",
   "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Yeremi\\Stopwords\\": "src/"
+    }
+  },
   "autoload-dev": {
     "psr-4": {
-      "Yeremi\\StopWords\\": "tests/unit/"
+      "Yeremi\\Stopwords\\Test\\": "tests/"
     }
+  },
+  "config": {
+  },
+  "scripts": {
+    "cs-check": "@php ./vendor/bin/php-cs-fixer fix --dry-run --diff",
+    "cs-fix": "@php ./vendor/bin/php-cs-fixer fix",
+    "phpstan": "@php ./vendor/bin/phpstan analyse -l 3 src tests",
+    "rector-check": "@php ./vendor/bin/rector process --dry-run",
+    "rector-fix": "@php ./vendor/bin/rector process",
+    "test": "@php ./vendor/phpunit/phpunit/phpunit --do-not-cache-result"
   }
 }

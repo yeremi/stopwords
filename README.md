@@ -1,50 +1,62 @@
-# StopWords for Portuguese Brazilian Language / PT-BR
+# Stopwords
 
-##### PHP client StopWords for Portuguese Brazilian Language
+### A PHP Library for Managing Stopwords
 
-Stopwords (NPL) for Portuguese Brazilian Language PHP client provides a convenient toolset for developers working with
-Natural Language Processing (NLP) tasks in Brazilian Portuguese. This Composer package offers seamless integration,
-allowing easy access to a comprehensive list of stopwords commonly used in text analysis and preprocessing. Enhance your
-NLP projects by effortlessly filtering out irrelevant words, optimizing text processing, and improving overall accuracy.
-Harness the power of stopwords tailored specifically for the nuances of Brazilian Portuguese with this essential PHP
-client.
+**Stopwords** is a lightweight and efficient PHP library designed to simplify Natural Language Processing (NLP) tasks.
+By default, it includes a comprehensive list of 508 stopwords in Portuguese, categorized into:
 
-You can also use stop words in SEO to avoid search engines, saving space and time in processing large data during
-crawling or indexing.
+- Pronouns
+- Numerals
+- Temporal terms
+- Locative terms
+- Prepositions
+- Conjunctions
+- Articles
+- Adverbs
+- Interjections
+- Contractions
+- Miscellaneous terms
 
-## Setup
+The library is highly flexible and can be extended to include stopword dictionaries for other languages, making it a
+versatile tool for a wide range of text processing needs.
 
-To run this project, install it locally using Composer:
+Leverage **Stopwords** to streamline text processing, enhance SEO strategies, and improve accuracy in text-based
+applications.
 
-```shell
+## Table of Contents
+
+1. [Key Features](#key-features)
+2. [Installation](#installation)
+3. [How to use](/docs)
+    1. [Basic Examples](/docs/how-to-use)
+    2. [Creating Custom Dictionary](/docs/creating-dictionary.md)
+    3. [Migration v1 to v2](/docs/mirgation-v1-to-v2.md)
+4. [Contributing](#contributing)
+5. [License](#license)
+
+## **Key Features**
+
+1. **NLP Optimization:** Efficiently filter out common stopwords, saving processing time and enhancing text analysis.
+
+2. **SEO Utility:** Reduce irrelevant data during search engine crawling or indexing, improving website performance.
+
+3. **Customizable:** Easily extend or modify stopword lists to suit specific project requirements.
+
+4. **Composer-Ready:** Quickly integrate the library into your project using Composer.
+
+## Installation
+
+Add the library to your project using Composer:
+
+```bash
 composer require yeremi/stopwords
 ```
 
-## How to use
+## Contributing
 
-```php
-use Yeremi\StopWords\StopWords;
-
-class StopWordsHandler {
-
-    public function __construct(
-        private Stopwords $stopwords
-    ) {}
-    
-    public function handler(string $string): array 
-    {
-        return $this->stopwords::stop($string);
-    }
-}
-
-$stopwords = new Stopwords();
-$handlesClass = new StopWordsHandler($stopwords);
-
-$string = 'put your long text here';
-var_export($handlesClass->handler($string));
-```
+Contributions are welcome! If you encounter any issues or have suggestions for improvement, feel free to open an issue
+or submit a pull request.
 
 ## License
 
-Copyright (c) 2017 Yeremi Loli
-This software is licensed under the GNU General Public License v3.0. [View the license](LICENSE).
+Stopwords is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
