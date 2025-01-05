@@ -26,7 +26,9 @@ jobs:
           php-version: ${{ matrix.php }}
 
       - name: Install Dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest
+        uses: ramsey/composer-install@v1
+        with:
+          composer-options: "--prefer-dist"
 
       - name: Run PHP Lint
         run: find . -type f -name "*.php" -exec php -l {} \;
