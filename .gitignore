@@ -7,4 +7,3 @@
 .phpunit.result.cache
 .coverage
 .DS_Store
-package-lock.json
